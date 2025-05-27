@@ -9,3 +9,8 @@ def create_user(username, email):
 def get_all_users():
     """Get all users"""
     return User.get_all()
+
+
+def find_user_by_id(user_id):
+    """Find user by ID"""
+    return User.find_by_id(user_id)
