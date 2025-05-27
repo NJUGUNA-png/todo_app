@@ -30,3 +30,10 @@ def save(self):
         conn.commit()
         conn.close()
         return self
+
+def delete(self):
+        conn = sqlite3.connect(DB_FILE)
+        cursor = conn.cursor()
+        cursor.execute("DELETE FROM tasks WHERE id=?", (self.id,))
+        conn.commit()
+        conn.close()
