@@ -32,3 +32,18 @@ def get_user_tasks(user_id):
 def find_task_by_id(task_id):
     """Find task by ID"""
     return Task.find_by_id(task_id)
+
+def update_task(task_id, title=None, description=None, completed=None):
+    """Update a task"""
+    task = Task.find_by_id(task_id)
+    if not task:
+        return None
+    
+    if title is not None:
+        task.title = title
+    if description is not None:
+        task.description = description
+    if completed is not None:
+        task.completed = completed
+    
+    return task.save()
