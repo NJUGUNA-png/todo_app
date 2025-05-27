@@ -24,3 +24,11 @@ def create_task(title, description, user_id):
 def get_all_tasks():
     """Get all tasks"""
     return Task.get_all()
+
+def get_user_tasks(user_id):
+    """Get tasks for a specific user"""
+    return Task.get_by_user(user_id)
+
+def find_task_by_id(task_id):
+    """Find task by ID"""
+    return Task.find_by_id(task_id)
