@@ -7,7 +7,7 @@ class User:
         self.username = username
         self.email = email
 
-        def save(self):
+    def save(self):
         conn = sqlite3.connect(DB_FILE)
         cursor = conn.cursor()
         
@@ -33,3 +33,15 @@ class User:
         cursor.execute("DELETE FROM users WHERE id=?", (self.id,))
         conn.commit()
         conn.close()
+
+    @staticmethod
+    def find_by_id(user_id):
+        conn = sqlite3.connect(DB_FILE)
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM users WHERE id=?", (user_id,))
+        row = cursor.fetchone()
+        conn.close()
+        
+        if row:
+            return User(id=row[0], username=row[1], email=row[2])
+        return None
