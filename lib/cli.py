@@ -26,3 +26,16 @@ def list_users():
     for user in users:
         click.echo(f"{user.id}: {user.username} - {user.email}")
 
+@cli.command()
+@click.option('--user-id', prompt=True, type=int, help="User ID")
+@click.option('--title', prompt=True, help="Task title")
+@click.option('--description', prompt=True, help="Task description")
+def add_task(user_id, title, description):
+    """Add a new task"""
+    user = find_user_by_id(user_id)
+    if not user:
+        click.echo("User not found!")
+        return
+    
+    task = create_task(title, description, user_id)
+    click.echo(f"Task created: {task.title} (ID: {task.id})")
