@@ -78,3 +78,6 @@ def delete_task(task_id):
         click.echo("Task deleted successfully")
     else:
         click.echo("Task not found!")
+
+if __name__ == '__main__':
+    cli()
