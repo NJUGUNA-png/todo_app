@@ -9,3 +9,6 @@ def seed_database():
     create_task("Finish project", "Complete the CLI todo app", user1.id)
     create_task("Call mom", "Sunday evening", user1.id)
 
+    create_task("Schedule meeting", "With the design team", user2.id)
+    create_task("Review PRs", "Code reviews for team", user2.id)
+    
