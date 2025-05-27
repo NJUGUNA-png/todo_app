@@ -45,3 +45,11 @@ class User:
         if row:
             return User(id=row[0], username=row[1], email=row[2])
         return None
+    
+    @staticmethod
+    def get_all():
+        conn = sqlite3.connect(DB_FILE)
+        cursor = conn.cursor()
+        cursor.execute("SELECT * FROM users")
+        rows = cursor.fetchall()
+        conn.close()
