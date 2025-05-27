@@ -77,3 +77,12 @@ def get_all():
             user_id=row[4]
         ) for row in rows
     ]
+
+@staticmethod
+def get_by_user(user_id):
+    conn = sqlite3.connect(DB_FILE)
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM tasks WHERE user_id=?", (user_id,))
+    rows = cursor.fetchall()
+    conn.close()
+        
