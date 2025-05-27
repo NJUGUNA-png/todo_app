@@ -19,3 +19,8 @@ def create_task(title, description, user_id):
     """Create a new task"""
     task = Task(title=title, description=description, user_id=user_id)
     return task.save()
+
+
+def get_all_tasks():
+    """Get all tasks"""
+    return Task.get_all()
