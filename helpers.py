@@ -56,3 +56,10 @@ def delete_task(task_id):
         return True
     return False
 
+def toggle_task_complete(task_id):
+    """Toggle task completion status"""
+    task = Task.find_by_id(task_id)
+    if task:
+        task.toggle_complete()
+        return task
+    return None
