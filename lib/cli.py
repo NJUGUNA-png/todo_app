@@ -58,3 +58,14 @@ def list_tasks(user_id):
     for task in tasks:
         status = "✓" if task.completed else "✗"
         click.echo(f"{task.id}: [{status}] {task.title} - {task.description}")
+
+@cli.command()
+@click.option('--task-id', required=True, type=int, help="Task ID")
+def toggle_task(task_id):
+    
+    task = toggle_task_complete(task_id)
+    if task:
+        status = "completed" if task.completed else "not completed"
+        click.echo(f"Task '{task.title}' is now {status}")
+    else:
+        click.echo("Task not found!")
