@@ -18,3 +18,11 @@ def add_user(username, email):
     
     user = create_user(username, email)
     click.echo(f"User created: {user.username} (ID: {user.id})")
+
+@cli.command()
+def list_users():
+    
+    users = get_all_users()
+    for user in users:
+        click.echo(f"{user.id}: {user.username} - {user.email}")
+
