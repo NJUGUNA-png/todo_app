@@ -11,4 +11,5 @@ def seed_database():
 
     create_task("Schedule meeting", "With the design team", user2.id)
     create_task("Review PRs", "Code reviews for team", user2.id)
-    
+
+    print("Database seeded successfully!")
