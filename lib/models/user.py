@@ -53,3 +53,5 @@ class User:
         cursor.execute("SELECT * FROM users")
         rows = cursor.fetchall()
         conn.close()
+
+        return [User(id=row[0], username=row[1], email=row[2]) for row in rows]
