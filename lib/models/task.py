@@ -60,3 +60,20 @@ def find_by_id(task_id):
         )
     return None
 
+@staticmethod
+def get_all():
+    conn = sqlite3.connect(DB_FILE)
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM tasks")
+    rows = cursor.fetchall()
+    conn.close()
+    
+    return [
+        Task(
+            id=row[0],
+            title=row[1],
+            description=row[2],
+            completed=bool(row[3]),
+            user_id=row[4]
+        ) for row in rows
+    ]
