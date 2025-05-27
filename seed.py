@@ -1,7 +1,11 @@
 from lib.helpers import create_user, create_task
 
 def seed_database():
-    """Seed the database with sample data"""
     
     user1 = create_user("brian_njoroge", "brian21@gmail.com")
     user2 = create_user("njuguna_njoroge", "njuguna@gmail.com")
+
+    create_task("Buy groceries", "Milk, eggs, bread", user1.id)
+    create_task("Finish project", "Complete the CLI todo app", user1.id)
+    create_task("Call mom", "Sunday evening", user1.id)
+
