@@ -69,3 +69,12 @@ def toggle_task(task_id):
         click.echo(f"Task '{task.title}' is now {status}")
     else:
         click.echo("Task not found!")
+
+@cli.command()
+@click.option('--task-id', required=True, type=int, help="Task ID")
+def delete_task(task_id):
+    """Delete a task"""
+    if delete_task(task_id):
+        click.echo("Task deleted successfully")
+    else:
+        click.echo("Task not found!")
