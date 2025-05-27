@@ -13,3 +13,7 @@ def seed_database():
     create_task("Review PRs", "Code reviews for team", user2.id)
 
     print("Database seeded successfully!")
+
+
+if __name__ == '__main__':
+    seed_database()
