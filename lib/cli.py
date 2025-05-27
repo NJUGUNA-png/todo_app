@@ -73,7 +73,7 @@ def toggle_task(task_id):
 @cli.command()
 @click.option('--task-id', required=True, type=int, help="Task ID")
 def delete_task(task_id):
-    """Delete a task"""
+    
     if delete_task(task_id):
         click.echo("Task deleted successfully")
     else:
