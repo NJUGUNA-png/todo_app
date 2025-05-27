@@ -37,3 +37,7 @@ def delete(self):
         cursor.execute("DELETE FROM tasks WHERE id=?", (self.id,))
         conn.commit()
         conn.close()
+
+def toggle_complete(self):
+        self.completed = not self.completed
+        self.save()
