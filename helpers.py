@@ -47,3 +47,12 @@ def update_task(task_id, title=None, description=None, completed=None):
         task.completed = completed
     
     return task.save()
+
+def delete_task(task_id):
+    """Delete a task"""
+    task = Task.find_by_id(task_id)
+    if task:
+        task.delete()
+        return True
+    return False
+
