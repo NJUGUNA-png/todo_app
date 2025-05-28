@@ -1,4 +1,5 @@
 import sqlite3
+from lib.config import DB_FILE
 from .user import User
 from .task import Task
 

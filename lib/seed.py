@@ -2,8 +2,8 @@ from lib.helpers import create_user, create_task
 
 def seed_database():
     
-    user1 = create_user("brian_njoroge", "brian21@gmail.com")
-    user2 = create_user("njuguna_njoroge", "njuguna@gmail.com")
+    user1 = create_user("john_doe", "john@example.com")
+    user2 = create_user("jane_smith", "jane@example.com")
 
     create_task("Buy groceries", "Milk, eggs, bread", user1.id)
     create_task("Finish project", "Complete the CLI todo app", user1.id)

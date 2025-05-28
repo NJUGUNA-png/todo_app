@@ -1,5 +1,5 @@
 import sqlite3
-from lib.models import DB_FILE
+from lib.config import DB_FILE
 
 class Task:
     def __init__(self, title, description, user_id, completed=False, id=None):

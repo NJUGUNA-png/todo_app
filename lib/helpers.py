@@ -61,3 +61,5 @@ def toggle_task_complete(task_id):
         task.toggle_complete()
         return task
     return None
+
+print("Task class methods:", dir(Task))  # Should show get_by_user
