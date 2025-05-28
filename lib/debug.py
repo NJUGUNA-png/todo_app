@@ -32,4 +32,9 @@ def test_application():
     user = find_user_by_id(user.id)
     user.delete()
     print("User deleted successfully")
+
+    print("\nAll tests completed!")
+
+if __name__ == '__main__':
+    test_application()
     
