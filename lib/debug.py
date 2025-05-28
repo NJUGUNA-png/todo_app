@@ -27,3 +27,9 @@ def test_application():
     print("\nTesting task deletion...")
     if delete_task(task.id):
         print("Task deleted successfully")
+
+    print("\nTesting user deletion...")
+    user = find_user_by_id(user.id)
+    user.delete()
+    print("User deleted successfully")
+    
