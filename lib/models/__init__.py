@@ -1,35 +1,23 @@
-import sqlite3
-from lib.config import DB_FILE
-from .user import User
-from .task import Task
+from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
 
-DB_FILE = "todo.db"
 
-def create_tables():
-    """Create database tables"""
-    conn = sqlite3.connect(DB_FILE)
-    cursor = conn.cursor()
+DATABASE_URL = "sqlite:///todos.db"
 
-    cursor.execute("""
-        CREATE TABLE IF NOT EXISTS users (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            username TEXT UNIQUE NOT NULL,
-            email TEXT UNIQUE NOT NULL
-        )
-    """)
 
-    cursor.execute("""
-        CREATE TABLE IF NOT EXISTS tasks (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            title TEXT NOT NULL,
-            description TEXT,
-            completed BOOLEAN DEFAULT 0,
-            user_id INTEGER,
-            FOREIGN KEY (user_id) REFERENCES users(id)
-        )
-    """)
+engine = create_engine(DATABASE_URL, echo=False)
 
-    conn.commit()
-    conn.close()
 
-    create_tables()
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
+
+Base = declarative_base()
+
+def get_session():
+   
+    return SessionLocal()
+
+def init_db():
+    
+    Base.metadata.create_all(bind=engine)
