@@ -23,3 +23,7 @@ def test_application():
     print("\nTesting task update...")
     task = update_task(task.id, title="Updated test task")
     print(f"Updated task title: {task.title}")
+
+    print("\nTesting task deletion...")
+    if delete_task(task.id):
+        print("Task deleted successfully")
