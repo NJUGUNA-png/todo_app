@@ -15,3 +15,7 @@ def test_application():
     print("\nTesting task creation...")
     task = create_task("Test task", "This is a test task", user.id)
     print(f"Created task: {task.title} (ID: {task.id})")
+
+    print("\nTesting task completion toggle...")
+    task = toggle_task_complete(task.id)
+    print(f"Task completed status: {task.completed}")
