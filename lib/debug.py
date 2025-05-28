@@ -11,3 +11,7 @@ def test_application():
     print("\nTesting user creation...")
     user = create_user("test_user", "test@example.com")
     print(f"Created user: {user.username} (ID: {user.id})")
+
+    print("\nTesting task creation...")
+    task = create_task("Test task", "This is a test task", user.id)
+    print(f"Created task: {task.title} (ID: {task.id})")
