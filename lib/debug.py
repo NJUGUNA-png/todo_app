@@ -19,3 +19,7 @@ def test_application():
     print("\nTesting task completion toggle...")
     task = toggle_task_complete(task.id)
     print(f"Task completed status: {task.completed}")
+
+    print("\nTesting task update...")
+    task = update_task(task.id, title="Updated test task")
+    print(f"Updated task title: {task.title}")
